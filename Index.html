@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technically assessment</title>
+    <link rel="stylesheet" type="text/css" href="Styiles.css">
+    <script type ="text/javascript" src="scripts.file.js"></script>
+</head>
+
+<body>
+
+    
+
+<div class="container">
+    <div class="boxmain">
+
+        <H1 id="title">Calculadora de matrices</H1>
+    </div>
+    <div class="box1">
+        <h2>Matriz A</h2>
+        <div class="divTable blueTable" id="matrixA">
+            <div class="divTableHeading">
+                <div class="divTableRow">
+                    <div class="divTableHead">1</div>
+                    <div class="divTableHead">2</div>
+                    <div class="divTableHead thirdlyA">3</div>
+                </div>
+            </div>
+            <div class="divTableBody">
+                <div class="divTableRow">
+                    <div class="divTableCell">
+                        <input type="number" id="A-1-1" name="A-1-1" spellcheck="false" inputmode="" class="matrix-cell"
+                               enterkeyhint="enter" placeholder="" aria-label="a 1 1"></div>
+                    <div class="divTableCell"><input type="number" id="A-1-2" name="A-1-2" spellcheck="false"
+                                                     inputmode="" class="matrix-cell" enterkeyhint="enter"
+                                                     placeholder="" aria-label="a 1 2">
+                    </div>
+                    <div class="divTableCell thirdlyA" ><input type="number" id="A-1-3" name="A-1-3" spellcheck="false"
+                                                     inputmode="" class="matrix-cell" enterkeyhint="enter"
+                                                     placeholder="" aria-label="a 1 3"></div>
+                </div>
+                <div class="divTableRow">
+                    <div class="divTableCell"><input type="number" id="A-2-1" name="A-2-1" spellcheck="false"
+                                                     inputmode="" class="matrix-cell" enterkeyhint="enter"
+                                                     placeholder="" aria-label="a 2 1"></div>
+                    <div class="divTableCell"><input type="number" id="A-2-2" name="A-2-2" spellcheck="false"
+                                                     inputmode="" class="matrix-cell" enterkeyhint="enter"
+                                                     placeholder="" aria-label="a 2 2"></div>
+                    <div class="divTableCell thirdlyA"><input type="number" id="A-2-3" name="A-2-3" spellcheck="false"
+                                                     inputmode="" class="matrix-cell" enterkeyhint="enter"
+                                                     placeholder="" aria-label="a 2 3"></div>
+                </div>
+                <div class="divTableRow thirdlyA" >
+                    <div class="divTableCell "><input type="number" id="A-3-1" name="A-3-1" spellcheck="false"
+                                                     inputmode="" class="matrix-cell" enterkeyhint="enter"
+                                                     placeholder="" aria-label="a 3 1"></div>
+                    <div class="divTableCell "><input type="number" id="A-3-2" name="A-3-2" spellcheck="false"
+                                                     inputmode="" class="matrix-cell" enterkeyhint="enter"
+                                                     placeholder="" aria-label="a 3 2"></div>
+                    <div class="divTableCell "><input type="number" id="A-3-3" name="A-3-3" spellcheck="false"
+                                                     inputmode="" class="matrix-cell" enterkeyhint="enter"
+                                                     placeholder="" aria-label="a 3 3"></div>
+                </div>
+            </div>
+        </div>
+        <button type="button" onclick="myFunction('matrixA')" class="clearB" >clear</button>
+        <button type="button" class="add" id="addA" onclick="addrow('.thirdlyA')">+</button>
+        <button type="button" class="minus" id="minusA" onclick="removerow('.thirdlyA')">-</button>
+        
+        </div>
+        <div class="box3">
+
+            <button type="button" class="calculate" onclick="calculate()">Calcular</button>
+        </div>
+<div class="box2">
+    <h2>Matriz B</h2>
+        <div class="divTable blueTable" id="matrixB">
+            <div class="divTableHeading">
+                <div class="divTableRow">
+                    <div class="divTableHead">1</div>
+                    <div class="divTableHead">2</div>
+                    <div class="divTableHead thirdlyB">3</div>
+                </div>
+            </div>
+            <div class="divTableBody">
+                <div class="divTableRow">
+                    <div class="divTableCell">
+                        <input type="number" id="B-1-1" name="A-1-1" spellcheck="false" inputmode="" class="matrix-cell"
+                               enterkeyhint="enter" placeholder="" aria-label="a 1 1"></div>
+                    <div class="divTableCell"><input type="number" id="B-1-2" name="A-1-2" spellcheck="false"
+                                                     inputmode="" class="matrix-cell" enterkeyhint="enter"
+                                                     placeholder="" aria-label="a 1 2">
+                    </div>
+                    <div class="divTableCell thirdlyB"><input type="number" id="B-1-3" name="A-1-3" spellcheck="false"
+                                                     inputmode="" class="matrix-cell" enterkeyhint="enter"
+                                                     placeholder="" aria-label="a 1 3"></div>
+                </div>
+                <div class="divTableRow">
+                    <div class="divTableCell"><input type="number" id="B-2-1" name="A-2-1" spellcheck="false"
+                                                     inputmode="" class="matrix-cell" enterkeyhint="enter"
+                                                     placeholder="" aria-label="a 2 1"></div>
+                    <div class="divTableCell"><input type="number" id="B-2-2" name="A-2-2" spellcheck="false"
+                                                     inputmode="" class="matrix-cell" enterkeyhint="enter"
+                                                     placeholder="" aria-label="a 2 2"></div>
+                    <div class="divTableCell thirdlyB"><input type="number" id="B-2-3" name="A-2-3" spellcheck="false"
+                                                     inputmode="" class="matrix-cell" enterkeyhint="enter"
+                                                     placeholder="" aria-label="a 2 3"></div>
+                </div>
+                <div class="divTableRow thirdlyB">
+                    <div class="divTableCell"><input type="number" id="B-3-1" name="A-3-1" spellcheck="false"
+                                                     inputmode="" class="matrix-cell" enterkeyhint="enter"
+                                                     placeholder="" aria-label="a 3 1"></div>
+                    <div class="divTableCell"><input type="number" id="B-3-2" name="A-3-2" spellcheck="false"
+                                                     inputmode="" class="matrix-cell" enterkeyhint="enter"
+                                                     placeholder="" aria-label="a 3 2"></div>
+                    <div class="divTableCell"><input type="number" id="B-3-3" name="A-3-3" spellcheck="false"
+                                                     inputmode="" class="matrix-cell" enterkeyhint="enter"
+                                                     placeholder="" aria-label="a 3 3"></div>
+                </div>
+            </div>
+        </div>
+        <button type="button" onclick="myFunction('matrixB')" class="clearA" >clear</button>
+        <button type="button" class="add" onclick="addrow('.thirdlyB')" id="addB">+</button>
+        <button type="button" class="minus" onclick="removerow('.thirdlyB')" id="minusB">-</button>
+    </div>
+
+</div>
+
+</body>
+
+</html>
