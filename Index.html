@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Technically assessment</title>
     <link rel="stylesheet" type="text/css" href="Styiles.css">
+    <script src="https://kit.fontawesome.com/3c0bd07c85.js" crossorigin="anonymous"></script>
     <script type ="text/javascript" src="scripts.file.js"></script>
 </head>
 
@@ -71,8 +72,22 @@
         
         </div>
         <div class="box3">
-
-            <button type="button" class="calculate" onclick="calculate()">Calcular</button>
+            <div class="divSelect"> <label for="Operacion"><h2>Operacion</h2></label>
+                <div class="select">
+                    <select name="operacion" id="operacion">
+                        <option value="1">Selecciona</option>
+                        <option value="2">Sumar</option>
+                        <option value="3">Multiplicar</option>
+                        <option value="4">Resta</option>
+                    </select>
+                    <div class="select_arrow">
+                    </div>
+                </div>
+                
+                </Select></div>
+           
+        <div class="divOperar">  <button type="button" class="calculate" onclick="calculate()" id="calculate">Calcular</button></div>
+          
         </div>
 <div class="box2">
     <h2>Matriz B</h2>
@@ -125,7 +140,10 @@
         <button type="button" class="add" onclick="addrow('.thirdlyB')" id="addB">+</button>
         <button type="button" class="minus" onclick="removerow('.thirdlyB')" id="minusB">-</button>
     </div>
-
+    <a href="#"  class="float" onclick="darkmode()">
+        <i class="fa-solid fa-moon my-float" id="my-float"></i>
+        
+        </a>
 </div>
 
 </body>
