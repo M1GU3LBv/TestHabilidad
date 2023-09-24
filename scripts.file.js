@@ -15,7 +15,6 @@ function removerow(row) {
       tempB = "2x2";
     }
   });
- 
 }
 function addrow(row) {
   if (row == ".thirdlyA") {
@@ -53,49 +52,106 @@ function calculate() {
   } else {
     alert("Selecciona dos matricez iguales");
   }
+}
+function operar(op, matrix) {
+  var matrizA, matrizB;
 
-  function operar(op, matrix) {
-    
-    var matrizA = [[document.getElementById('A-1-1').value, document.getElementById('A-1-2').value], [document.getElementById('A-2-1').value, document.getElementById('A-2-2').value]];
-    var matrizB = [[document.getElementById('B-1-1').value, document.getElementById('B-1-2').value], [document.getElementById('B-2-1').value, document.getElementById('B-2-2').value]];
-    console.log(matrizA);
-    console.log(matrizB);
-    
-    switch (op) {
-      case '1':
-        alert("selecciona una operacion");
-        break;
-      case '2':
-        
-        console.log(resultado = sumarMatrices(matrizA, matrizB));
-        break;
-      case '3':
-
+  if (matrix === "2x2") {
+      matrizA = obtenerMatriz(2, 2, "A");
+      matrizB = obtenerMatriz(2, 2, "B");
+  } else {
+      matrizA = obtenerMatriz(3, 3, "A");
+      matrizB = obtenerMatriz(3, 3, "B");
+  }
+  if (!noHayCamposVacios(matrizA) || !noHayCamposVacios(matrizB)) {
+    alert("Debe completar todas las celdas de las matrices.");
+    return;
+}
+  switch (op) {
+      case "1":
+          alert("Selecciona una operación");
+          break;
+      case "2":
+          alert((resultado = sumarMatrices(matrizA, matrizB)));
+          break;
+      case "3":
+          alert((resultado = multiplicarMatrices(matrizA, matrizB)));
+          break;
+      case "4":
+          alert((resultado = restarMatrices(matrizA, matrizB)));
+          break;
       default:
-        break;
-    }
+          break;
   }
 }
 function sumarMatrices(matrizA, matrizB) {
   if (
-      matrizA.length !== matrizB.length ||
-      matrizA[0].length !== matrizB[0].length
+    matrizA.length !== matrizB.length ||
+    matrizA[0].length !== matrizB[0].length
   ) {
-      throw new Error("Las matrices no tienen las mismas dimensiones.");
+    throw new Error("Las matrices no tienen las mismas dimensiones.");
   }
 
   var resultado = [];
   for (var i = 0; i < matrizA.length; i++) {
-      var fila = [];
-      for (var j = 0; j < matrizA[i].length; j++) {
-          fila.push(matrizA[i][j] + matrizB[i][j]);
+    var fila = [];
+    for (var j = 0; j < matrizA[i].length; j++) {
+      fila.push(matrizA[i][j] + matrizB[i][j]);
+    }
+    resultado.push(fila);
+  }
+
+  return resultado;
+}
+function multiplicarMatrices(matrizA, matrizB) {
+  if (matrizA[0].length !== matrizB.length) {
+    throw new Error("Las matrices no tienen dimensiones compatibles para la multiplicación.");
+  }
+
+  var resultado = [];
+  for (var i = 0; i < matrizA.length; i++) {
+    resultado[i] = [];
+    for (var j = 0; j < matrizB[0].length; j++) {
+      var sum = 0;
+      for (var k = 0; k < matrizA[0].length; k++) {
+        sum += matrizA[i][k] * matrizB[k][j];
       }
-      resultado.push(fila);
+      resultado[i][j] = sum;
+    }
+  }
+
+  return resultado;
+}
+function restarMatrices(matrizA, matrizB) {
+  if (
+    matrizA.length !== matrizB.length ||
+    matrizA[0].length !== matrizB[0].length
+  ) {
+    throw new Error("Las matrices no tienen las mismas dimensiones.");
+  }
+
+  var resultado = [];
+  for (var i = 0; i < matrizA.length; i++) {
+    resultado[i] = [];
+    for (var j = 0; j < matrizA[0].length; j++) {
+      resultado[i][j] = matrizA[i][j] - matrizB[i][j];
+    }
   }
 
   return resultado;
 }
 
+
+function obtenerMatriz(numFilas, numColumnas, identificador) {
+  var matriz = [];
+  for (var i = 0; i < numFilas; i++) {
+      matriz[i] = [];
+      for (var j = 0; j < numColumnas; j++) {
+          matriz[i][j] = parseInt(document.getElementById(identificador + "-" + (i + 1) + "-" + (j + 1)).value);
+      }
+  }
+  return matriz;
+}
 //////////////////////////////////non necessary////////////////////////////////
 function darkmode() {
   var floting = document.getElementById("my-float");
@@ -107,4 +163,14 @@ function darkmode() {
     floting.setAttribute("class", "fa-solid fa-sun my-float");
     element.classList.toggle("dark-mode");
   }
+}
+function noHayCamposVacios(matriz) {
+  for (var i = 0; i < matriz.length; i++) {
+      for (var j = 0; j < matriz[i].length; j++) {
+          if (isNaN(matriz[i][j])) {
+              return false; // Si al menos una celda no es un número, hay un campo vacío
+          }
+      }
+  }
+  return true; // No hay campos vacíos
 }
